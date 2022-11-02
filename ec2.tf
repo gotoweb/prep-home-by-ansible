@@ -65,16 +65,16 @@ resource "aws_security_group" "allow_ssh" {
   }
 }
 
-resource "aws_instance" "bluemarble" {
+resource "aws_instance" "linux-sprint" {
   ami           = "ami-0fa722130bc79ec9b"
   instance_type = "t4g.small"
   subnet_id = module.vpc.public_subnets[0]
   vpc_security_group_ids = [ aws_security_group.allow_ssh.id ]
 
-  key_name = "noah"
+  key_name = "hoyong"
 
   tags = {
-    Name = "bluemarble"
+    Name = "리눅스 실습 playground"
   }
 
   user_data = "${file("multiuser.sh")}"

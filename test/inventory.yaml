@@ -1,0 +1,10 @@
+ec2instances:
+  hosts:
+    user01:
+      ansible_host: 52.78.73.22
+      ansible_user: kimcoding
+      ansible_ssh_private_key_file: ~/student.pem
+    user02:
+      ansible_host: 52.78.73.22
+      ansible_user: choigosu
+      ansible_ssh_private_key_file: ~/student.pem

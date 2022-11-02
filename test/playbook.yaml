@@ -1,0 +1,13 @@
+---
+
+- name: Example
+  hosts: all
+  become: false
+  tasks:
+  - name: Quest1 - exist access.log file
+    shell: cat access.log
+    register: result
+  - name: Print result variable
+    debug:
+      msg:
+        - "{{ result.stdout }}"
