@@ -5,9 +5,18 @@
   become: false
   tasks:
   - name: Quest1 - exist access.log file
-    shell: cat access.log
-    register: result
+    shell: cat access.log | tail -n 1
+    register: quest1
+    changed_when: false
   - name: Print result variable
     debug:
       msg:
-        - "{{ result.stdout }}"
+        - "{{ quest1.stdout }}"
+  - name: Quest2 - exist access_count.sh file
+    shell: ./access_count.sh
+    register: quest2
+    changed_when: false
+  - name: Print result variable
+    debug:
+      msg:
+        - "{{ quest2.stdout }}"
