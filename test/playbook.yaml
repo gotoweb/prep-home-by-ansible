@@ -20,3 +20,19 @@
     debug:
       msg:
         - "{{ quest2.stdout }}"
+  - name: Quest3-1 - exist response_200_count.sh file
+    shell: ./response_200_count.sh
+    register: quest3_1
+    changed_when: false
+  - name: Print result variable
+    debug:
+      msg:
+        - "{{ quest3_1.stdout }}"
+  - name: Quest3-2 - exist response_200.log file
+    shell: cat response_200.log | tail -n 1
+    register: quest3_2
+    changed_when: false
+  - name: Print result variable
+    debug:
+      msg:
+        - "{{ quest3_2.stdout }}"
